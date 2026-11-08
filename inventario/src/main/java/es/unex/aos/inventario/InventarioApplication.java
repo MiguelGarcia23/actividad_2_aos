@@ -22,6 +22,7 @@ public class InventarioApplication {
 
 	@PostConstruct
 	public void init() {
+
 		List list = new ArrayList<>();
 
 		Producto producto1 = new Producto("Producto 1", 10.0f, 1.0f, "Categoria 1");
@@ -31,6 +32,7 @@ public class InventarioApplication {
 		list.add(producto2);
 
 		productoRepository.saveAll(list);
+		
 	}
 
 }
