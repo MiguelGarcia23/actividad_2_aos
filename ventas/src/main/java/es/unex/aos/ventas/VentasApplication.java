@@ -14,7 +14,10 @@ import es.unex.aos.ventas.model.Venta;
 import es.unex.aos.ventas.repository.VentaRepository;
 import jakarta.annotation.PostConstruct;
 
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
 @SpringBootApplication
+@EnableDiscoveryClient
 public class VentasApplication {
 
 	@Autowired VentaRepository ventaRepository;

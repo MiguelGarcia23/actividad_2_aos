@@ -11,7 +11,10 @@ import es.unex.aos.contenido_digital.model.ContenidoDigital;
 import es.unex.aos.contenido_digital.repository.ContenidoRepository;
 import jakarta.annotation.PostConstruct;
 
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
 @SpringBootApplication
+@EnableDiscoveryClient
 public class ContenidoDigitalApplication {
 
 	@Autowired ContenidoRepository contenidoRepository;

@@ -11,7 +11,10 @@ import es.unex.aos.inventario.model.Producto;
 import es.unex.aos.inventario.repository.ProductoRepository;
 import jakarta.annotation.PostConstruct;
 
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
 @SpringBootApplication
+@EnableDiscoveryClient
 public class InventarioApplication {
 
 	@Autowired ProductoRepository productoRepository;

@@ -11,7 +11,10 @@ import es.unex.aos.incidencias.model.Incidencia;
 import es.unex.aos.incidencias.repository.IncidenciaRepository;
 import jakarta.annotation.PostConstruct;
 
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
 @SpringBootApplication
+@EnableDiscoveryClient
 public class IncidenciasApplication {
 
 	@Autowired IncidenciaRepository incidenciaRepository;
