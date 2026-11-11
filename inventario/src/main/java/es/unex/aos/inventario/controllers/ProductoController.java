@@ -2,6 +2,8 @@ package es.unex.aos.inventario.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,8 +23,15 @@ public class ProductoController {
     }
 
     @GetMapping("/{id}")
-    public Producto getProductoById(Long id) {
+    public Producto getProductoById(@PathVariable Long id) {
         return productoRepository.findById(id).get();
+    }
+
+    @PutMapping("/{id}/reducir-stock/{cantidad}")
+    public void reducirStock(@PathVariable Long id, @PathVariable int cantidad) {
+        Producto producto = productoRepository.findById(id).get();
+        producto.setStock(producto.getStock() - cantidad);
+        productoRepository.save(producto);
     }
     
 }

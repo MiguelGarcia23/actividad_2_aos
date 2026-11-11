@@ -4,6 +4,7 @@ import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -18,7 +19,7 @@ public class Venta {
     private Long idCliente; // Referencia al cliente
     private float total;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "venta_id")
     private Set<LineaVenta> lineasVenta;
 
@@ -53,6 +54,14 @@ public class Venta {
 
     public void setTotal(float total) {
         this.total = total;
+    }
+
+    public Set<LineaVenta> getLineasVenta() {
+        return lineasVenta;
+    }
+
+    public void setLineasVenta(Set<LineaVenta> lineasVenta) {
+        this.lineasVenta = lineasVenta;
     }
 
 }

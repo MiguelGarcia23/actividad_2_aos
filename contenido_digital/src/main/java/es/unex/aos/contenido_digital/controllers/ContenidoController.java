@@ -2,6 +2,7 @@ package es.unex.aos.contenido_digital.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +10,7 @@ import es.unex.aos.contenido_digital.model.ContenidoDigital;
 import es.unex.aos.contenido_digital.repository.ContenidoRepository;
 
 @RestController 
-@RequestMapping("/api/contenido_digital")
+@RequestMapping("/api/contenido-digital")
 public class ContenidoController {
 
     @Autowired 
@@ -21,7 +22,7 @@ public class ContenidoController {
     }
 
     @GetMapping("/{id}")
-    public ContenidoDigital getContenidoById(Long id) {
+    public ContenidoDigital getContenidoById(@PathVariable Long id) {
         return contenidoRepository.findById(id).get();
     }
     

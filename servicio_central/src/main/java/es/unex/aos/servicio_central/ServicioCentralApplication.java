@@ -11,7 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableCircuitBreaker	// Habilita Hystrix para Circuit Breaker
-@EnableEurekaClient		// Habilita Eureka Client
+@EnableDiscoveryClient
 public class ServicioCentralApplication {
 
 	public static void main(String[] args) {

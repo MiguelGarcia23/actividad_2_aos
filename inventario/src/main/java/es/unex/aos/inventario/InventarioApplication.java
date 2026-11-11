@@ -28,11 +28,14 @@ public class InventarioApplication {
 
 		List list = new ArrayList<>();
 
-		Producto producto1 = new Producto("Producto 1", 10.0f, 1.0f, "Categoria 1");
+		Producto producto1 = new Producto("Producto 1", 10.0f, 1.0f, "Categoria 1", 3, 1L);
 		list.add(producto1);
 
-		Producto producto2 = new Producto("Producto 2", 20.0f, 2.0f, "Categoria 2");
+		Producto producto2 = new Producto("Producto 2", 20.0f, 2.0f, "Categoria 2", 3, 2L);
 		list.add(producto2);
+		
+		Producto producto3 = new Producto("Producto 3", 30.0f, 3.0f, "Categoria 1", 5, 1L);
+		list.add(producto3);
 
 		productoRepository.saveAll(list);
 		

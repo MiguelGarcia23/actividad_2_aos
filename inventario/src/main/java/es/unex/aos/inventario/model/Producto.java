@@ -15,15 +15,19 @@ public class Producto {
     private float precio;
     private float peso;
     private String categoria;
+    private int stock;
+    private Long idContenido;
 
     public Producto() {
     }
 
-    public Producto(String nombre, float precio, float peso, String categoria) {
+    public Producto(String nombre, float precio, float peso, String categoria, int stock, Long idContenido) {
         this.nombre = nombre;
         this.precio = precio;
         this.peso = peso;
         this.categoria = categoria;
+        this.stock = stock;
+        this.idContenido = idContenido;
     }
 
     public Long getId() {
@@ -64,6 +68,22 @@ public class Producto {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public Long getIdContenido() {
+        return idContenido;
+    }
+
+    public void setIdContenido(Long idContenido) {
+        this.idContenido = idContenido;
     }
     
 }
