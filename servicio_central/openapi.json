@@ -1,0 +1,204 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://158.49.189.253:9000",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/servicio-central/ventas": {
+      "get": {
+        "tags": ["servicio-central-controller"],
+        "operationId": "getVentas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["servicio-central-controller"],
+        "operationId": "registraVenta",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VentaDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/servicio-central/producto-con-imagen/{id}": {
+      "get": {
+        "tags": ["servicio-central-controller"],
+        "operationId": "getProductoConImagen",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/servicio-central/inventario": {
+      "get": {
+        "tags": ["servicio-central-controller"],
+        "operationId": "getInventario",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/servicio-central/incidencias": {
+      "get": {
+        "tags": ["servicio-central-controller"],
+        "operationId": "getIncidencias",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/servicio-central/dashboard": {
+      "get": {
+        "tags": ["servicio-central-controller"],
+        "operationId": "getDashboard",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/servicio-central/contenido-digital": {
+      "get": {
+        "tags": ["servicio-central-controller"],
+        "operationId": "getContenidoDigital",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LineaVentaDTO": {
+        "type": "object",
+        "properties": {
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "precioUnitario": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "VentaDTO": {
+        "type": "object",
+        "properties": {
+          "idCliente": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total": {
+            "type": "number",
+            "format": "float"
+          },
+          "lineasVenta": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineaVentaDTO"
+            }
+          }
+        }
+      }
+    }
+  }
+}

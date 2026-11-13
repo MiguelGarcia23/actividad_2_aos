@@ -1,0 +1,533 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://158.49.189.253:55218",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/productos": {
+      "get": {
+        "tags": ["producto-entity-controller"],
+        "description": "get-producto",
+        "operationId": "getCollectionResource-producto-get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelProducto"
+                }
+              },
+              "application/x-spring-data-compact+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelProducto"
+                }
+              },
+              "text/uri-list": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["producto-entity-controller"],
+        "description": "create-producto",
+        "operationId": "postCollectionResource-producto-post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProducto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/productos/{id}": {
+      "get": {
+        "tags": ["producto-entity-controller"],
+        "description": "get-producto",
+        "operationId": "getItemResource-producto-get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProducto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["producto-entity-controller"],
+        "description": "update-producto",
+        "operationId": "putItemResource-producto-put",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProducto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProducto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["producto-entity-controller"],
+        "description": "delete-producto",
+        "operationId": "deleteItemResource-producto-delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["producto-entity-controller"],
+        "description": "patch-producto",
+        "operationId": "patchItemResource-producto-patch",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelProducto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/profile": {
+      "get": {
+        "tags": ["profile-controller"],
+        "operationId": "listAllFormsOfMetadata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepresentationModelObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/productos": {
+      "get": {
+        "tags": ["profile-controller"],
+        "operationId": "descriptor",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/alps+json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/schema+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/productos/{id}/reducir-stock/{cantidad}": {
+      "put": {
+        "tags": ["producto-controller"],
+        "operationId": "reducirStock",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "cantidad",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/productos": {
+      "get": {
+        "tags": ["producto-controller"],
+        "operationId": "getProductos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/productos/{id}": {
+      "get": {
+        "tags": ["producto-controller"],
+        "operationId": "getProductoById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoRequestBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AbstractJsonSchemaPropertyObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "readOnly": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Item": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AbstractJsonSchemaPropertyObject"
+            }
+          },
+          "requiredProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "JsonSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AbstractJsonSchemaPropertyObject"
+            }
+          },
+          "requiredProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "definitions": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Item"
+            }
+          },
+          "type": {
+            "type": "string"
+          },
+          "$schema": {
+            "type": "string"
+          }
+        }
+      },
+      "RepresentationModelObject": {
+        "type": "object",
+        "properties": {
+          "_links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        }
+      },
+      "EntityModelProducto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "precio": {
+            "type": "number",
+            "format": "float"
+          },
+          "peso": {
+            "type": "number",
+            "format": "float"
+          },
+          "categoria": {
+            "type": "string"
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idContenido": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        }
+      },
+      "CollectionModelEntityModelProducto": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "productos": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelProducto"
+                }
+              }
+            }
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        }
+      },
+      "ProductoRequestBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "precio": {
+            "type": "number",
+            "format": "float"
+          },
+          "peso": {
+            "type": "number",
+            "format": "float"
+          },
+          "categoria": {
+            "type": "string"
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idContenido": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "hreflang": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "deprecation": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "templated": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Links": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/Link"
+        }
+      }
+    }
+  }
+}

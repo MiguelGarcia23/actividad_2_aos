@@ -20,7 +20,6 @@ public class IncidenciaController {
         return incidenciaRepository.findAll();
     }
 
-    // Basado en Lab 1.es.md (Parte 4)
     @GetMapping("/{id}")
     public Incidencia getIncidencia(@PathVariable Long id){
         return incidenciaRepository.findById(id).get();

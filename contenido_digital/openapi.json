@@ -1,0 +1,470 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://158.49.189.253:53378",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/contenidoDigitals": {
+      "get": {
+        "tags": ["contenido-digital-entity-controller"],
+        "description": "get-contenidodigital",
+        "operationId": "getCollectionResource-contenidodigital-get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelContenidoDigital"
+                }
+              },
+              "application/x-spring-data-compact+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelContenidoDigital"
+                }
+              },
+              "text/uri-list": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["contenido-digital-entity-controller"],
+        "description": "create-contenidodigital",
+        "operationId": "postCollectionResource-contenidodigital-post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContenidoDigitalRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelContenidoDigital"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contenidoDigitals/{id}": {
+      "get": {
+        "tags": ["contenido-digital-entity-controller"],
+        "description": "get-contenidodigital",
+        "operationId": "getItemResource-contenidodigital-get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelContenidoDigital"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["contenido-digital-entity-controller"],
+        "description": "update-contenidodigital",
+        "operationId": "putItemResource-contenidodigital-put",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContenidoDigitalRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelContenidoDigital"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelContenidoDigital"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["contenido-digital-entity-controller"],
+        "description": "delete-contenidodigital",
+        "operationId": "deleteItemResource-contenidodigital-delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["contenido-digital-entity-controller"],
+        "description": "patch-contenidodigital",
+        "operationId": "patchItemResource-contenidodigital-patch",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContenidoDigitalRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelContenidoDigital"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/profile": {
+      "get": {
+        "tags": ["profile-controller"],
+        "operationId": "listAllFormsOfMetadata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepresentationModelObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/contenidoDigitals": {
+      "get": {
+        "tags": ["profile-controller"],
+        "operationId": "descriptor",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/alps+json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/schema+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contenido-digital": {
+      "get": {
+        "tags": ["contenido-controller"],
+        "operationId": "getContenidoDigital",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contenido-digital/{id}": {
+      "get": {
+        "tags": ["contenido-controller"],
+        "operationId": "getContenidoById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/vnd.hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContenidoDigitalRequestBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AbstractJsonSchemaPropertyObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "readOnly": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Item": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AbstractJsonSchemaPropertyObject"
+            }
+          },
+          "requiredProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "JsonSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AbstractJsonSchemaPropertyObject"
+            }
+          },
+          "requiredProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "definitions": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Item"
+            }
+          },
+          "type": {
+            "type": "string"
+          },
+          "$schema": {
+            "type": "string"
+          }
+        }
+      },
+      "RepresentationModelObject": {
+        "type": "object",
+        "properties": {
+          "_links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        }
+      },
+      "CollectionModelEntityModelContenidoDigital": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "contenidoDigitals": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelContenidoDigital"
+                }
+              }
+            }
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        }
+      },
+      "EntityModelContenidoDigital": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "type": "string"
+          },
+          "urlArchivo": {
+            "type": "string"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        }
+      },
+      "ContenidoDigitalRequestBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "tipo": {
+            "type": "string"
+          },
+          "urlArchivo": {
+            "type": "string"
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "hreflang": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "deprecation": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "templated": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Links": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/Link"
+        }
+      }
+    }
+  }
+}
